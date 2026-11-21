@@ -4,6 +4,36 @@
 render.yaml은 웹 서비스 한 개를 plan: free로 생성합니다.
 별도 데이터베이스나 유료 서비스는 생성하지 않습니다.
 
+## 현재 서비스
+
+- 공용 주소: https://argument-map-api.onrender.com
+- 관리 화면: https://dashboard.render.com/web/srv-dc0lv2t9el5s73ehrdcg
+- 작업 공간: Epoch's workspace
+- 서버 플랜: Free, 싱가포르 리전
+- 생성 방식: Render 웹 서비스 직접 생성
+- 자동 배포: 꺼짐
+
+2026-11-21 첫 배포가 live 상태에 도달한 것을 확인했습니다.
+사용자별 분석 횟수 제한을 추가하지 않았습니다.
+AI 분석을 시작하려면 관리자가 아래 API 키 설정을 완료해야 합니다.
+
+### API 키 설정
+
+1. 위 관리 화면에서 Environment를 엽니다.
+2. OPENAI_API_KEY 환경 변수를 추가하고 사용할 전체 비밀키를 입력합니다.
+3. Save, rebuild, and deploy를 선택합니다.
+4. 새 배포가 Live가 된 뒤 https://argument-map-api.onrender.com/health 에서
+   ok와 configured가 true인지 확인합니다.
+
+OPENAI_MODEL은 이미 gpt-5-mini로 설정되어 있습니다.
+실제 API 키와 .env 파일은 GitHub에 올리지 않습니다.
+서버 호스팅은 무료 플랜이며 OpenAI API 사용료는 키 소유자 계정에 별도로 청구됩니다.
+
+현재 서비스는 저장소 루트에서 다음 명령으로 실행됩니다.
+
+    python -m pip install -r backend/requirements.txt
+    uvicorn backend.server:app --host 0.0.0.0 --port $PORT --no-access-log
+
 ## 서버 만들기
 
 1. 이 프로젝트의 backend, render.yaml, .python-version을 포함한 소스를 Git 저장소에 올립니다.
@@ -65,9 +95,9 @@ Render 무료 웹 서비스는 일정 시간 사용하지 않으면 절전 상�
 
 ## 현재 배포 상태
 
-코드와 무료 배포 설정이 준비된 상태입니다. 실제 생성된 서비스 URL과 연결된
-Render 계정이 확인되기 전에는 배포 완료로 간주하지 않습니다.
-API 키 설정도 Render의 비밀 환경 변수에서 완료해야 합니다.
+무료 웹 서비스 생성과 첫 배포는 완료했습니다.
+확장 프로그램에는 실제 공용 서버 주소를 기본값으로 반영했습니다.
+API 키 설정과 실제 AI 분석 확인은 아직 남아 있습니다.
 
 공식 안내:
 https://render.com/docs/deploy-fastapi

@@ -4,13 +4,28 @@
   "version": "0.3.0",
   "description": "논증지도를 켜면 현재 보이는 웹페이지 전체의 주장과 근거를 바로 분석합니다.",
   "minimum_chrome_version": "142",
-  "permissions": ["activeTab", "storage", "sidePanel"],
-  "host_permissions": ["http://127.0.0.1/*"],
-  "optional_host_permissions": ["https://*.onrender.com/*"],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "https://argument-map-api.onrender.com/*"
+  ],
+  "optional_host_permissions": [
+    "https://*.onrender.com/*"
+  ],
   "options_page": "options.html",
-  "background": {"service_worker": "background.js"},
-  "action": {"default_title": "논증지도 켜기 / 끄기"},
-  "side_panel": {"default_path": "viewer.html"},
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "논증지도 켜기 / 끄기"
+  },
+  "side_panel": {
+    "default_path": "viewer.html"
+  },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'none'; connect-src http://127.0.0.1:8765 https://*.onrender.com; img-src 'self' data: blob:;"
   }
