@@ -1,0 +1,17 @@
+:root { color-scheme: light; font: 16px/1.8 "Malgun Gothic","Noto Sans KR",sans-serif; color: #183547; background: #f1f5f7; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 32px 18px; }
+main { max-width: 650px; margin: 4vh auto; padding: 34px; background: white; border: 1px solid #d8e3e9; border-radius: 18px; }
+h1 { margin: 0 0 18px; font-size: 27px; line-height: 1.5; }
+p { margin: 12px 0; }
+.eyebrow { margin: 0 0 7px; font-size: 14px; color: #177a63; font-weight: 700; }
+label { display: block; margin: 24px 0 8px; font-weight: 600; }
+input { width: 100%; padding: 12px; border: 1px solid #a9bdca; border-radius: 8px; font: inherit; }
+button { padding: 11px 16px; border: 1px solid #1b5e95; border-radius: 8px; background: #1b5e95; color: white; cursor: pointer; font: inherit; font-size: 14px; }
+button:disabled { opacity: .5; cursor: default; }
+.secondary { background: white; color: #245a80; border-color: #c4d5e0; }
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.help, .footnote { color: #60798b; font-size: 14px; }
+#status { white-space: pre-line; overflow-wrap: anywhere; }
+#status[data-error="true"] { color: #a34230; }
+input:focus-visible,button:focus-visible { outline: 3px solid #84b4d4; outline-offset: 3px; }

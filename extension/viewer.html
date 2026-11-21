@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>논증지도</title>
+  <link rel="stylesheet" href="viewer.css">
+  <script src="viewer.js" type="module"></script>
+</head>
+<body>
+  <header class="page-header">
+    <div><h1>논증지도</h1><p>읽는 화면을 한눈에 이해하세요. <span id="versionLabel">v0.3.0</span></p></div>
+    <button id="toggleButton" class="toggle" role="switch" aria-checked="true" aria-label="논증지도" title="논증지도 끄기">
+      <span class="toggle-track" aria-hidden="true"></span><span id="toggleLabel">켜짐</span>
+    </button>
+  </header>
+  <main class="workspace">
+    <section class="source-panel panel" aria-label="분석 화면">
+      <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span>현재 보이는 웹페이지 전체</div>
+      <p id="captureTitle" class="source-title">화면을 불러오는 중입니다.</p>
+      <p id="captureTime" class="muted small"></p>
+      <button id="refreshButton" class="primary" disabled>현재 화면 다시 분석</button>
+      <p class="input-help">스크롤한 뒤에는 다시 분석을 눌러 주세요. 화면 아래에 가려진 내용은 포함되지 않습니다.</p>
+      <p id="staleNotice" class="stale-notice" role="status" hidden>탭이나 페이지가 바뀌었어요. 아래 지도는 이전 화면의 결과입니다. 현재 화면 다시 분석을 눌러 주세요.</p>
+      <p id="message" class="message" role="status" aria-live="polite">켜는 순간 화면을 읽고 지도를 만듭니다.</p>
+      <div class="connection-row">
+        <span id="connectionStatus" role="status">서버 확인 중</span>
+        <button id="checkConnectionButton" class="text-button">연결 확인</button>
+      </div>
+    </section>
+    <section class="output-panel panel" aria-labelledby="outputHeading">
+      <span id="modeLabel" class="mode-label" hidden></span>
+      <h2 id="outputHeading">화면을 읽고 있어요</h2>
+      <p id="counts" class="muted small"></p>
+      <p id="readingNote" class="reading-note" hidden></p>
+      <div id="emptyState" class="empty-state">
+        <span class="empty-icon" aria-hidden="true">↳</span>
+        <p>논증지도를 준비하고 있어요.</p>
+        <span>주장과 근거가 연결된 지도가 여기에 나타납니다.</span>
+      </div>
+      <div id="graphTools" class="graph-tools" hidden>
+        <label for="zoomControl">크기</label>
+        <input id="zoomControl" type="range" min="50" max="160" step="10" value="100">
+        <button id="fitButton" class="text-button">화면에 맞춤</button>
+      </div>
+      <div id="graphContainer" class="graph-container" tabindex="0" aria-label="논증지도"></div>
+      <div class="export-buttons">
+        <button id="saveSvgButton" class="secondary" disabled>SVG 저장</button>
+        <button id="savePngButton" class="secondary" disabled>PNG 저장</button>
+      </div>
+      <div id="nodeDetail" class="node-detail" hidden>
+        <strong id="nodeDetailType"></strong><p id="nodeDetailText"></p><blockquote id="nodeDetailQuote"></blockquote>
+      </div>
+      <details id="transcriptDetails"><summary>인식한 원문</summary><p id="transcript">분석 후 인식한 원문이 표시됩니다.</p></details>
+      <details id="captureDetails"><summary>캡처한 화면 확인</summary><img id="capturePreview" alt="캡처한 웹페이지의 전체 보이는 영역" hidden><p id="capturePlaceholder" class="muted small">아직 캡처한 화면이 없습니다.</p></details>
+    </section>
+    <footer><button id="demoButton" class="text-button">예시 지도 보기</button> · <a href="options.html" target="_blank" class="text-button">서버 연결 설정</a><p>켜기와 다시 분석 시 화면을 서버를 통해 OpenAI API로 보냅니다.<br>스크롤이나 탭 이동만으로는 새 분석을 요청하지 않습니다.</p></footer>
+  </main>
+</body>
+</html>

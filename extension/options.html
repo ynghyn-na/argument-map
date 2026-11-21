@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>논증지도 서버 연결</title>
+  <link rel="stylesheet" href="options.css">
+  <script src="options.js" type="module"></script>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">논증지도</p>
+    <h1>서버 연결 설정</h1>
+    <p>공용 서버에 연결하면 이 컴퓨터에서 Python 서버를 실행하지 않아도 됩니다.</p>
+    <form id="settingsForm">
+      <label for="serverUrl">서버 주소</label>
+      <input id="serverUrl" type="url" required autocomplete="url" spellcheck="false" placeholder="https://서버이름.onrender.com">
+      <p class="help">관리자가 안내한 Render 서버 주소를 입력하세요. API 키는 입력하지 않습니다.</p>
+      <div class="buttons">
+        <button id="saveButton" type="submit">저장하고 연결 확인</button>
+        <button id="localButton" class="secondary" type="button">로컬 서버 사용</button>
+      </div>
+    </form>
+    <p id="status" role="status" aria-live="polite"></p>
+    <p class="footnote">저장한 주소는 이 브라우저에만 적용됩니다. 무료 서버가 잠들어 있으면 연결 확인에 약 1분이 걸릴 수 있습니다.</p>
+  </main>
+</body>
+</html>
